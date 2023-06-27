@@ -1,0 +1,83 @@
+NAME
+    DublinCore::Print - Class for random day generation.
+
+SYNOPSIS
+     use DublinCore::Print;
+
+     my $obj = DublinCore::Print->new(%params);
+     my $scalar = $obj->print($dc);
+     my @lines = $obj->print($dc);
+
+METHODS
+  "new"
+     my $obj = DublinCore::Print->new(%params);
+
+    Constructor.
+
+    *       "output_sep"
+
+            Output separator.
+
+            Default value is "\n".
+
+    Returns instance of object.
+
+  "print"
+     my $scalar = $obj->print($dc);
+     my @lines = $obj->print($dc);
+
+    TODO
+
+ERRORS
+     new():
+             From Class::Utils::set_params():
+                     Unknown parameter '%s'.
+
+     print():
+             Bad Dublin Core object to print.
+             No Dublin Core object to print.
+
+EXAMPLE
+     use strict;
+     use warnings;
+
+     use DublinCore::Print;
+
+     # Object.
+     my $obj = DublinCore::Print->new;
+
+     # Print out.
+     print $obj->print."\n";
+
+     # Output like:
+     # TODO
+
+DEPENDENCIES
+    Class::Utils, Error::Pure, List::Util, Readonly, Scalar::Util.
+
+SEE ALSO
+    DublinCore::Record
+        TODO
+
+    DublinCore::Element
+        TODO
+
+    Data::DublinCore
+        TODO
+
+REPOSITORY
+    <https://github.com/michal-josef-spacek/DublinCore-Print>
+
+AUTHOR
+    Michal Josef Špaček <mailto:skim@cpan.org>
+
+    <http://skim.cz>
+
+LICENSE AND COPYRIGHT
+    © 2023 Michal Josef Špaček
+
+    BSD 2-Clause License
+
+VERSION
+    0.01
+
