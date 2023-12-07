@@ -20,6 +20,7 @@ meta-spec:
 name: DublinCore-Print
 no_index:
   directory:
+    - examples
     - inc
     - t
     - xt
