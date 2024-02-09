@@ -6,7 +6,7 @@ use warnings;
 use Class::Utils qw(set_params);
 use DublinCore::Record::Print::Texts qw(texts);
 use Error::Pure qw(err);
-use List::Util qw(none);
+use List::Util 1.33 qw(none);
 use Readonly;
 use Scalar::Util qw(blessed);
 use Unicode::UTF8 qw(encode_utf8);

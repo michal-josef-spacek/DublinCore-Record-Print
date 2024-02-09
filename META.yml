@@ -27,9 +27,11 @@ no_index:
 requires:
   Class::Utils: 0.03
   Error::Pure: 0.15
-  List::Util: 0
+  Exporter: 0
+  List::Util: 1.33
   Readonly: 0
   Scalar::Util: 0
+  Unicode::UTF8: 0
   perl: 5.6.2
 resources:
   bugtracker: https://github.com/michal-josef-spacek/DublinCore-Record-Print/issues
