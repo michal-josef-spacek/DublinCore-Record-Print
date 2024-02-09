@@ -179,7 +179,7 @@ L<Unicode::UTF8>.
 
 =item L<DublinCore::Record::Print>
 
-TODO
+Class for Dublin Core record print.
 
 =back
 

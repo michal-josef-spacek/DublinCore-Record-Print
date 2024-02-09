@@ -1,5 +1,5 @@
 NAME
-    DublinCore::Record::Print - Class for random day generation.
+    DublinCore::Record::Print - Class for Dublin Core record print.
 
 SYNOPSIS
      use DublinCore::Record::Print;

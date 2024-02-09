@@ -103,7 +103,7 @@ __END__
 
 =head1 NAME
 
-DublinCore::Record::Print - Class for random day generation.
+DublinCore::Record::Print - Class for Dublin Core record print.
 
 =head1 SYNOPSIS
 
