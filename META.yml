@@ -1,5 +1,5 @@
 ---
-abstract: 'Class for Dublin Core record print'
+abstract: 'Class for Dublin Core record print.'
 author:
   - 'Michal Josef Spacek <skim@cpan.org>'
 build_requires:
