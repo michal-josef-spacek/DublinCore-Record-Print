@@ -17,7 +17,7 @@ license: bsd
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
   version: 1.4
-name: DublinCore-Print
+name: DublinCore-Record-Print
 no_index:
   directory:
     - examples
@@ -32,8 +32,8 @@ requires:
   Scalar::Util: 0
   perl: 5.6.2
 resources:
-  bugtracker: https://github.com/michal-josef-spacek/DublinCore-Print/issues
-  homepage: https://github.com/michal-josef-spacek/DublinCore-Print
+  bugtracker: https://github.com/michal-josef-spacek/DublinCore-Record-Print/issues
+  homepage: https://github.com/michal-josef-spacek/DublinCore-Record-Print
   license: http://opensource.org/licenses/bsd-license.php
-  repository: git://github.com/michal-josef-spacek/DublinCore-Print
+  repository: git://github.com/michal-josef-spacek/DublinCore-Record-Print
 version: '0.01'

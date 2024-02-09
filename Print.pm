@@ -1,13 +1,15 @@
-package DublinCore::Print;
+package DublinCore::Record::Print;
 
 use strict;
 use warnings;
 
 use Class::Utils qw(set_params);
+use DublinCore::Print::Texts qw(texts);
 use Error::Pure qw(err);
 use List::Util qw(none);
 use Readonly;
 use Scalar::Util qw(blessed);
+use Unicode::UTF8 qw(encode_utf8);
 
 Readonly::Array our @SUPPORTED_OBJ => qw(DublinCore::Record);
 
@@ -20,10 +22,19 @@ sub new {
 	# Create object.
 	my $self = bless {}, $class;
 
+	$self->{'flag_keys'} = 1;
+
+	$self->{'lang'} = 'eng';
+
 	$self->{'output_sep'} = "\n";
 
 	# Process parameters.
 	set_params($self, @params);
+
+	if (! defined $self->{'lang'}) {
+		err "Parameter 'lang' is required.";
+	}
+	$self->{'_texts'} = texts($self->{'lang'});
 
 	return $self;
 }
@@ -31,18 +42,55 @@ sub new {
 sub print {
 	my ($self, $dc) = @_;
 
-	my @ret;
+my @ret;
 
 	if (! defined $dc) {
 		err 'No Dublin Core object to print.';
 	}
-	if (! blessed($dc) || none { $dc eq $_ } @SUPPORTED_OBJ) {
+	if (! blessed($dc) || none { $dc->isa($_) } @SUPPORTED_OBJ) {
 		err 'Bad Dublin Core object to print.'
 	}
 
-	# TODO
+	# Construct output.
+	if ($dc->isa('DublinCore::Record')) {
+		@ret = $self->_dublin_core_record($dc);
+	} else {
+		err "Object '".(ref $dc)."' doesn't supported.";
+	}
 
 	return wantarray ? @ret : join $self->{'output_sep'}, @ret;
+}
+
+sub _dublin_core_record {
+	my ($self, $dc) = @_;
+
+	my @ret;
+#	push @ret, $self->_text('title', $dc->title);
+	foreach my $elem ($dc->elements) {
+#use Data::Printer;
+#p $elem;
+		my $qualifier = $elem->qualifier;
+		my $scheme = $elem->scheme;
+		my $language = $elem->language;
+		if ($self->{'flag_keys'}) {
+			printf "%s: %s\n",
+				$elem->name.
+				($qualifier ? ".$qualifier" : '').
+				($scheme ? "($scheme)" : '').
+				($language ? "($language)" : ''),
+				encode_utf8($elem->content);
+		} else {
+			# TODO Implement.
+		}
+	}
+
+	return @ret;
+}
+
+sub _text {
+	my ($self, $key, $value) = @_;
+
+	return $self->{'_texts'}->{$key}.': '.$value;
 }
 
 1;
@@ -97,6 +145,9 @@ TODO
  new():
          From Class::Utils::set_params():
                  Unknown parameter '%s'.
+         From DublinCore::Print::Texts::texts():
+                 Language '%s' doesn't supported.
+         Parameter 'lang' is required.
 
  print():
          Bad Dublin Core object to print.
@@ -110,12 +161,20 @@ TODO
  use warnings;
 
  use DublinCore::Print;
+ use DublinCore::Record;
+
+ # DC record.
+ my $rec = DublinCore::Record->new;
+ $rec->add(DublinCore::Element->new({
+         'content' => 'Ed Summers',
+         'name' => 'creator',
+ }));
 
  # Object.
  my $obj = DublinCore::Print->new;
 
  # Print out.
- print $obj->print."\n";
+ print $obj->print($rec)."\n";
 
  # Output like:
  # TODO
@@ -126,7 +185,8 @@ L<Class::Utils>,
 L<Error::Pure>,
 L<List::Util>,
 L<Readonly>,
-L<Scalar::Util>.
+L<Scalar::Util>,
+L<Unicode::UTF8>.
 
 =head1 SEE ALSO
 

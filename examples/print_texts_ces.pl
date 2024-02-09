@@ -4,7 +4,7 @@ use strict;
 use warnings;
 
 use Data::Printer return_value => 'dump';
-use DublinCore::Print::Texts qw(texts);
+use DublinCore::Record::Print::Texts qw(texts);
 use Unicode::UTF8 qw(encode_utf8);
 
 # Get texts.

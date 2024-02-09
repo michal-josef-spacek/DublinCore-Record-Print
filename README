@@ -32,6 +32,9 @@ ERRORS
      new():
              From Class::Utils::set_params():
                      Unknown parameter '%s'.
+             From DublinCore::Print::Texts::texts():
+                     Language '%s' doesn't supported.
+             Parameter 'lang' is required.
 
      print():
              Bad Dublin Core object to print.
@@ -42,18 +45,27 @@ EXAMPLE
      use warnings;
 
      use DublinCore::Print;
+     use DublinCore::Record;
+
+     # DC record.
+     my $rec = DublinCore::Record->new;
+     $rec->add(DublinCore::Element->new({
+             'content' => 'Ed Summers',
+             'name' => 'creator',
+     }));
 
      # Object.
      my $obj = DublinCore::Print->new;
 
      # Print out.
-     print $obj->print."\n";
+     print $obj->print($rec)."\n";
 
      # Output like:
      # TODO
 
 DEPENDENCIES
-    Class::Utils, Error::Pure, List::Util, Readonly, Scalar::Util.
+    Class::Utils, Error::Pure, List::Util, Readonly, Scalar::Util,
+    Unicode::UTF8.
 
 SEE ALSO
     DublinCore::Record

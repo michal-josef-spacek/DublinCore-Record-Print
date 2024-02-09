@@ -4,7 +4,7 @@ use strict;
 use warnings;
 
 use Data::Printer;
-use DublinCore::Print::Texts qw(texts);
+use DublinCore::Record::Print::Texts qw(texts);
 
 # Get texts.
 my $texts_hr = texts('eng');

@@ -7,8 +7,8 @@ use Test::NoWarnings;
 BEGIN {
 
 	# Test.
-	use_ok('DublinCore::Print');
+	use_ok('DublinCore::Record::Print::Texts');
 }
 
 # Test.
-require_ok('DublinCore::Print');
+require_ok('DublinCore::Record::Print::Texts');

@@ -1,4 +1,4 @@
-package DublinCore::Print::Texts;
+package DublinCore::Record::Print::Texts;
 
 use base qw(Exporter);
 use strict;
@@ -71,11 +71,11 @@ __END__
 
 =head1 NAME
 
-DublinCore::Print::Texts - Translation texts for Dublin Core.
+DublinCore::Record::Print::Texts - Translation texts for Dublin Core.
 
 =head1 SYNOPSIS
 
- use DublinCore::Print::Texts qw(texts);
+ use DublinCore::Record::Print::Texts qw(texts);
 
  my $texts_hr = texts($lang);
 
@@ -102,7 +102,7 @@ Returns reference to hash.
  use warnings;
 
  use Data::Printer;
- use DublinCore::Print::Texts qw(texts);
+ use DublinCore::Record::Print::Texts qw(texts);
 
  # Get texts.
  my $texts_hr = texts('eng');
@@ -137,7 +137,7 @@ Returns reference to hash.
  use warnings;
 
  use Data::Printer return_value => 'dump';
- use DublinCore::Print::Texts qw(texts);
+ use DublinCore::Record::Print::Texts qw(texts);
  use Unicode::UTF8 qw(encode_utf8);
 
  # Get texts.
@@ -185,7 +185,7 @@ TODO
 
 =head1 REPOSITORY
 
-L<https://github.com/michal-josef-spacek/DublinCore-Print>
+L<https://github.com/michal-josef-spacek/DublinCore-Record-Print>
 
 =head1 AUTHOR
 
