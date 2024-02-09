@@ -3,8 +3,8 @@
 use strict;
 use warnings;
 
-use DublinCore::Print;
 use DublinCore::Record;
+use DublinCore::Record::Print;
 
 # DC record.
 my $rec = DublinCore::Record->new;
@@ -14,7 +14,7 @@ $rec->add(DublinCore::Element->new({
 }));
 
 # Object.
-my $obj = DublinCore::Print->new;
+my $obj = DublinCore::Record::Print->new;
 
 # Print out.
 print $obj->print($rec)."\n";

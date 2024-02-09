@@ -177,7 +177,7 @@ L<Unicode::UTF8>.
 
 =over
 
-=item L<DublinCore::Print>
+=item L<DublinCore::Record::Print>
 
 TODO
 

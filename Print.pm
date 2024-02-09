@@ -4,7 +4,7 @@ use strict;
 use warnings;
 
 use Class::Utils qw(set_params);
-use DublinCore::Print::Texts qw(texts);
+use DublinCore::Record::Print::Texts qw(texts);
 use Error::Pure qw(err);
 use List::Util qw(none);
 use Readonly;
@@ -103,13 +103,13 @@ __END__
 
 =head1 NAME
 
-DublinCore::Print - Class for random day generation.
+DublinCore::Record::Print - Class for random day generation.
 
 =head1 SYNOPSIS
 
- use DublinCore::Print;
+ use DublinCore::Record::Print;
 
- my $obj = DublinCore::Print->new(%params);
+ my $obj = DublinCore::Record::Print->new(%params);
  my $scalar = $obj->print($dc);
  my @lines = $obj->print($dc);
 
@@ -117,7 +117,7 @@ DublinCore::Print - Class for random day generation.
 
 =head2 C<new>
 
- my $obj = DublinCore::Print->new(%params);
+ my $obj = DublinCore::Record::Print->new(%params);
 
 Constructor.
 
@@ -145,7 +145,7 @@ TODO
  new():
          From Class::Utils::set_params():
                  Unknown parameter '%s'.
-         From DublinCore::Print::Texts::texts():
+         From DublinCore::Record::Print::Texts::texts():
                  Language '%s' doesn't supported.
          Parameter 'lang' is required.
 
@@ -160,8 +160,8 @@ TODO
  use strict;
  use warnings;
 
- use DublinCore::Print;
  use DublinCore::Record;
+ use DublinCore::Record::Print;
 
  # DC record.
  my $rec = DublinCore::Record->new;
@@ -171,7 +171,7 @@ TODO
  }));
 
  # Object.
- my $obj = DublinCore::Print->new;
+ my $obj = DublinCore::Record::Print->new;
 
  # Print out.
  print $obj->print($rec)."\n";
@@ -208,7 +208,7 @@ TODO
 
 =head1 REPOSITORY
 
-L<https://github.com/michal-josef-spacek/DublinCore-Print>
+L<https://github.com/michal-josef-spacek/DublinCore-Record-Print>
 
 =head1 AUTHOR
 

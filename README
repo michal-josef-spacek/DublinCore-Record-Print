@@ -1,16 +1,16 @@
 NAME
-    DublinCore::Print - Class for random day generation.
+    DublinCore::Record::Print - Class for random day generation.
 
 SYNOPSIS
-     use DublinCore::Print;
+     use DublinCore::Record::Print;
 
-     my $obj = DublinCore::Print->new(%params);
+     my $obj = DublinCore::Record::Print->new(%params);
      my $scalar = $obj->print($dc);
      my @lines = $obj->print($dc);
 
 METHODS
   "new"
-     my $obj = DublinCore::Print->new(%params);
+     my $obj = DublinCore::Record::Print->new(%params);
 
     Constructor.
 
@@ -32,7 +32,7 @@ ERRORS
      new():
              From Class::Utils::set_params():
                      Unknown parameter '%s'.
-             From DublinCore::Print::Texts::texts():
+             From DublinCore::Record::Print::Texts::texts():
                      Language '%s' doesn't supported.
              Parameter 'lang' is required.
 
@@ -44,8 +44,8 @@ EXAMPLE
      use strict;
      use warnings;
 
-     use DublinCore::Print;
      use DublinCore::Record;
+     use DublinCore::Record::Print;
 
      # DC record.
      my $rec = DublinCore::Record->new;
@@ -55,7 +55,7 @@ EXAMPLE
      }));
 
      # Object.
-     my $obj = DublinCore::Print->new;
+     my $obj = DublinCore::Record::Print->new;
 
      # Print out.
      print $obj->print($rec)."\n";
@@ -78,7 +78,7 @@ SEE ALSO
         TODO
 
 REPOSITORY
-    <https://github.com/michal-josef-spacek/DublinCore-Print>
+    <https://github.com/michal-josef-spacek/DublinCore-Record-Print>
 
 AUTHOR
     Michal Josef Špaček <mailto:skim@cpan.org>

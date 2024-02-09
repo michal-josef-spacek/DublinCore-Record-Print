@@ -1,7 +1,7 @@
 use strict;
 use warnings;
 
-use DublinCore::Print::Texts qw(texts);
+use DublinCore::Record::Print::Texts qw(texts);
 use English;
 use Error::Pure::Utils qw(clean);
 use Test::More 'tests' => 4;
